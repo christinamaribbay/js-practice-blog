@@ -9,15 +9,15 @@
 <body>
     <div>
         <label for="name">Name</label>
-        <input type="text" id="name-field">
+        <input type="text" id="name-field" required>
         <label for="post-field">Type your post</label>
-        <input type="text" id="post-field">
+        <input type="text" id="post-field" required>
         <button id="post-btn">Send post</button>
         <button id="clear-btn">Clear Blog</button>
-    </div>
-   
-    
+    </div>  
+    <div id="err-div"></div>  
     <div id="blog-div"></div>
+    
     <script src="script.js"></script>
 </body>
 </html>

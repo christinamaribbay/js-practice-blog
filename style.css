@@ -1,0 +1,184 @@
+/* Import an elegant, sophisticated serif font */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&display=swap');
+
+/* Global Reset & Body */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0a0a0c; /* Deep, near-black obsidian */
+    color: #c4c4c4; /* Soft silver for readability */
+    font-family: 'Crimson Pro', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+    min-height: 100vh;
+}
+
+/* The Input Form Container (targets the first div) */
+body > div:first-of-type {
+    background: #121214;
+    padding: 35px;
+    border-radius: 6px;
+    border: 1px solid #1f1f22;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Typography for Labels */
+label {
+    color: #8c8c8c;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: -5px;
+    font-weight: 600;
+}
+
+/* Input Fields */
+input[type="text"] {
+    background-color: #050506;
+    border: 1px solid #2a2a2e;
+    color: #e0e0e0;
+    padding: 14px;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+/* Focus State - A subtle blood-red glow */
+input[type="text"]:focus {
+    outline: none;
+    border-color: #7a0010;
+    box-shadow: 0 0 12px rgba(122, 0, 16, 0.3);
+}
+
+/* Buttons */
+button {
+    padding: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+#post-btn {
+    background-color: #63000b; /* Rich crimson */
+    color: #f0f0f0;
+    box-shadow: 0 4px 15px rgba(99, 0, 11, 0.2);
+}
+
+#post-btn:hover {
+    background-color: #850010;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(133, 0, 16, 0.4);
+}
+
+#post-btn:active {
+    transform: translateY(0);
+}
+
+#clear-btn {
+    background-color: transparent;
+    color: #555;
+    border: 1px solid #2a2a2e;
+    margin-top: 0;
+}
+
+#clear-btn:hover {
+    background-color: #1a1a1c;
+    color: #888;
+    border-color: #444;
+}
+
+/* --- Error Message Styling --- */
+#err-div p {
+    color: #ff4d4d;
+    background-color: rgba(255, 77, 77, 0.05);
+    border-left: 3px solid #ff4d4d;
+    padding: 12px;
+    font-size: 0.95rem;
+    border-radius: 0 4px 4px 0;
+    animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* --- Blog Output Area --- */
+#blog-div {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Individual Blog Posts */
+.blog-post {
+    background: #121214;
+    padding: 25px;
+    border-left: 3px solid #63000b; /* Red accent line */
+    border-radius: 0 6px 6px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    animation: fadeAndSlideIn 0.5s ease-out forwards;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Name */
+.blog-post p:nth-child(1) {
+    color: #e0e0e0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Date */
+.blog-post p:nth-child(2) {
+    color: #666666;
+    font-size: 0.85rem;
+    font-style: italic;
+    border-bottom: 1px solid #1f1f22;
+    padding-bottom: 12px;
+    margin-bottom: 8px;
+}
+
+/* Post Content */
+.blog-post p:nth-child(3) {
+    color: #c4c4c4;
+    font-size: 1.15rem;
+    line-height: 1.6;
+}
+
+/* Entry Animation */
+@keyframes fadeAndSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

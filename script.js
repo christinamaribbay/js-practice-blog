@@ -7,6 +7,7 @@ const postField = document.getElementById('post-field')
 const blogDiv = document.getElementById('blog-div')
 const nameField = document.getElementById('name-field')
 const clearBtn = document.getElementById('clear-btn')
+const errDiv = document.getElementById('err-div')
 //for page reload
 const savedNames = JSON.parse(localStorage.getItem("nameArr"))
 const savedDates = JSON.parse(localStorage.getItem("dateArr"))
@@ -21,18 +22,26 @@ if(savedNames && savedDates && savedPosts){
 }
 
 postBtn.addEventListener("click", ()=>{
-    const timeStamp = new Date;
-    nameArr.push(nameField.value)
-    dateArr.push(timeStamp.toString())
-    postArr.push(postField.value)
-    nameField.value = ""
-    postField.value = ""
 
-    localStorage.setItem("nameArr", JSON.stringify(nameArr))
-    localStorage.setItem("dateArr", JSON.stringify(dateArr))
-    localStorage.setItem("postArr", JSON.stringify(postArr))
+    if(!nameField.checkValidity() || !postField.checkValidity()){
+        const errMsg = "<p>Name or Post content required!<p>"
+        errDiv.innerHTML = errMsg 
+    } else {
+        errDiv.innerHTML = ""
+        const timeStamp = new Date;
+        nameArr.push(nameField.value)
+        dateArr.push(timeStamp.toString())
+        postArr.push(postField.value)
+        nameField.value = ""
+        postField.value = ""
 
-    render(nameArr, dateArr, postArr)
+        localStorage.setItem("nameArr", JSON.stringify(nameArr))
+        localStorage.setItem("dateArr", JSON.stringify(dateArr))
+        localStorage.setItem("postArr", JSON.stringify(postArr))
+
+        render(nameArr, dateArr, postArr)
+    }
+    
 })
 
 clearBtn.addEventListener("click", () => {
